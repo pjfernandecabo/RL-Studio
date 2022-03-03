@@ -8,9 +8,13 @@ repository = "https://github.com/JdeRobot/RL-Studio"
 keywords = ["python", "reinforcement-learning", "artificial-intelligence", "jderobot"]
 # Avoid publish: https://twitter.com/pypi/status/1097241506304454656
 classifiers = ["Private :: Do Not Upload"]
+# https://python-poetry.org/docs/pyproject/#packages
+packages = [
+    { include = "rl_studio" },
+]
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = ">3.8, <3.11"
 catkin-pkg = "0.4.23"
 rospkg = "1.2.8"
 matplotlib = "3.3.2"
@@ -25,6 +29,13 @@ six = "1.14.0"
 pyglet = "^1.2.0"
 environs = "9.2.0"
 pre-commit = "^2.12.1"
+PyYAML = "^6.0"
+pydantic = "^1.9.0"
+tqdm = "^4.62.3"
+pandas = "1.3"
+# tensorflow = { version = "^1.15.2", python = "^3.7" }
+
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.4"
+black = "^22.1.0"

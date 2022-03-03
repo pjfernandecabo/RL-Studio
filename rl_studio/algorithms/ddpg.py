@@ -1,21 +1,14 @@
 import time
-import random
-import os
-from cprint import cprint
-import numpy as np
-import random
-import utils
-from icecream import ic
-from datetime import datetime, timedelta
-#import numpy as np
+from datetime import datetime
 
+import numpy as np
 import tensorflow as tf
-from tensorflow import keras
+from icecream import ic
 from tensorflow.keras import Input, Model, layers
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense, Dropout, Conv2D, MaxPooling2D, Activation, Flatten, BatchNormalization, Lambda
-from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.callbacks import TensorBoard
+from tensorflow.keras.layers import Dense, Dropout, Conv2D, MaxPooling2D, Activation, Flatten
+
+# import numpy as np
 #from visual.ascii.images import JDEROBOT_LOGO
 #from visual.ascii.text import JDEROBOT, QLEARN_CAMERA, LETS_GO
 

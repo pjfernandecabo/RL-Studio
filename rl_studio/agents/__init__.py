@@ -1,5 +1,5 @@
+from algorithms.algorithms_type import AlgorithmType
 from rl_studio.agents.agents_type import AgentsType
-from rl_studio.agents.algorithms_type import AlgorithmType
 from rl_studio.agents.exceptions import NoValidTrainingType
 
 

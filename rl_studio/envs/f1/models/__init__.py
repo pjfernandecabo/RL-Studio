@@ -38,7 +38,6 @@ class F1Env:
 
             return GazeboF1ManualCameraEnv(**config)
 
-        # DDPG
         elif training_type == EnvironmentType.ddpg_env.value:
             from rl_studio.envs.f1.models.f1_env_ddpg import F1DDPGCameraEnv
 
