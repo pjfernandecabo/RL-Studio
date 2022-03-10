@@ -1,5 +1,5 @@
 import argparse
-import json
+
 import yaml
 
 from rl_studio.agents import TrainerFactory
@@ -17,7 +17,10 @@ def get_environment(config_file: dict, input_env: str) -> dict:
     return {
         "name": input_env,
         "params": config_file["environments"][input_env],
-        "actions": config_file["actions"]["available_actions"][input_env],
+        # "actions": config_file["actions"]["available_actions"][input_env],
+        "actions": config_file["actions"]["available_actions"][config_file["actions"]["actions_set"]],
+        "actions_set": config_file["actions"]["actions_set"],
+        "actions_number": config_file["actions"]["actions_number"],
     }
 
 
@@ -36,7 +39,7 @@ def main():
     parser.add_argument("-n", "--algorithm", type=str, required=True)
     args = parser.parse_args()
 
-    config_file = yaml.load(args.file)
+    config_file = yaml.load(args.file, Loader=yaml.FullLoader)
     # print(f"INPUT CONFIGURATION FILE:\n{yaml.dump(config_file, indent=4)}")
 
     trainer_params = {
@@ -52,11 +55,10 @@ def main():
 
     # PARAMS
     params = TrainerValidator(**trainer_params)
-    print("PARAMS:\n")
-    print(json.dumps(dict(params), indent=2))
+    #print("PARAMS:\n")
+    #print(json.dumps(dict(params), indent=2))
     trainer = TrainerFactory(params)
     trainer.main()
-
 
 if __name__ == '__main__':
     main()
